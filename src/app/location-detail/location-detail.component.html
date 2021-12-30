@@ -1,0 +1,14 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <ng-container *ngIf="locationDetail$ | async as item">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.content }}</p>
+      <p>{{ item.phone }}</p>
+      <div>
+        <span class="mr-2">{{ item.timeOpen }}</span>
+        <span>{{ item.timeClose }}</span>
+      </div>
+      <p>{{ item.address }}</p>
+    </ng-container>
+  </div>
+</div>

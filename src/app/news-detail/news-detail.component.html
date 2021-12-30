@@ -1,0 +1,8 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <ng-container *ngIf="communityDetail$ | async as item">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.createdDate }}</p>
+    </ng-container>
+  </div>
+</div>

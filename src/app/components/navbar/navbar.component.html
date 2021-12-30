@@ -1,0 +1,48 @@
+<nav
+  class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top"
+>
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <a class="navbar-brand" href="javascript:void(0)">{{ getTitle() }}</a>
+    </div>
+    <button
+      mat-raised-button
+      class="navbar-toggler"
+      type="button"
+      (click)="sidebarToggle()"
+    >
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-center"
+      id="navigation"
+    >
+      <form class="navbar-form mr-sm-3">
+        <div class="input-group no-border">
+          <input
+            type="text"
+            value=""
+            class="form-control"
+            placeholder="Search..."
+          />
+          <button
+            mat-raised-button
+            type="submit"
+            class="btn btn-white btn-round btn-just-icon"
+          >
+            <i class="material-icons">search</i>
+            <div class="ripple-container"></div>
+          </button>
+        </div>
+      </form>
+      <select class="form-control w-25 mr-5" id="exampleFormControlSelect1">
+        <option selected>Khánh Hòa</option>
+      </select>
+      <button type="button" class="btn btn-primary mr-3">Đăng nhập</button>
+      <button type="button" class="btn btn-secondary">Đăng ký</button>
+    </div>
+  </div>
+</nav>

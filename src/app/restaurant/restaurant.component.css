@@ -1,0 +1,11 @@
+.text-bold {
+  font-weight: bolder;
+}
+
+p {
+  margin: 0;
+}
+
+.card {
+  cursor: pointer;
+}

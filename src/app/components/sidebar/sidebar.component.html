@@ -1,0 +1,121 @@
+<div class="logo">
+  <a href="https://www.creative-tim.com" class="simple-text">
+    <div class="logo-img">
+      <img src="https://infodation.vn/assets/images/logo.svg" />
+    </div>
+    Infodation
+  </a>
+</div>
+<div class="sidebar-wrapper">
+  <div *ngIf="isMobileMenu()">
+    <form class="navbar-form">
+      <span class="bmd-form-group">
+        <div class="input-group no-border">
+          <input
+            type="text"
+            value=""
+            class="form-control"
+            placeholder="Search..."
+          />
+          <button
+            mat-raised-button
+            type="submit"
+            class="btn btn-white btn-round btn-just-icon"
+          >
+            <i class="material-icons">search</i>
+            <div class="ripple-container"></div>
+          </button>
+        </div>
+      </span>
+    </form>
+    <ul class="nav navbar-nav nav-mobile-menu"></ul>
+  </div>
+  <!-- <ul class="nav">
+    <li
+      routerLinkActive="active"
+      *ngFor="let menuItem of menuItems"
+      class="{{ menuItem.class }} nav-item"
+    >
+      <a class="nav-link" [routerLink]="[menuItem.path]">
+        <i class="material-icons">{{ menuItem.icon }}</i>
+        <p>{{ menuItem.title }}</p>
+      </a>
+    </li>
+  </ul> -->
+
+  <div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button
+            class="btn btn-link"
+            data-toggle="collapse"
+            data-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            ĐỊA ĐIỂM
+          </button>
+        </h5>
+      </div>
+
+      <div
+        id="collapseOne"
+        class="collapse show"
+        aria-labelledby="headingOne"
+        data-parent="#accordion"
+      >
+        <div class="card-body">
+          <ul class="nav">
+            <li
+              routerLinkActive="active"
+              *ngFor="let menuItem of menuItems"
+              class="{{ menuItem.class }} nav-item"
+            >
+              <a class="nav-link" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{ menuItem.icon }}</i>
+                <p>{{ menuItem.title }}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button
+            class="btn btn-link collapsed"
+            data-toggle="collapse"
+            data-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            CỘNG ĐỒNG
+          </button>
+        </h5>
+      </div>
+      <div
+        id="collapseTwo"
+        class="collapse"
+        aria-labelledby="headingTwo"
+        data-parent="#accordion"
+      >
+        <div class="card-body">
+          <ul class="nav">
+            <li
+              routerLinkActive="active"
+              *ngFor="let menuItem of menuItems2"
+              class="{{ menuItem.class }} nav-item"
+            >
+              <a class="nav-link" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{ menuItem.icon }}</i>
+                <p>{{ menuItem.title }}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

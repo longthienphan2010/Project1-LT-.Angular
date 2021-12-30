@@ -1,0 +1,41 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <ng-container *ngFor="let item of newsData$ | async">
+        <div
+          class="card mr-5"
+          style="width: 18rem"
+          (click)="getDetail(item.id)"
+        >
+          <!-- <ng-container *ngFor="let image of imageData$ | async">
+            <ng-container
+              *ngIf="
+                image.idObj === item.id &&
+                image.thumbnail === 1 &&
+                image.type === 'ta'
+              "
+            >
+              <img
+                class="card-img-top"
+                [src]="image.url"
+                alt="Card image cap"
+              />
+            </ng-container>
+          </ng-container> -->
+
+          <div class="card-body">
+            <h5 class="card-title text-bold">{{ item.title }}</h5>
+            <p>{{ item.content }}</p>
+            <div>
+              <ng-container *ngIf="reviewData$ | async">
+                <span>{{ (reviewData$ | async).length }}</span>
+              </ng-container>
+              <span>{{ item.views }}</span>
+            </div>
+            <p>{{ item.createdDate }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
