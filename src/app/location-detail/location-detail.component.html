@@ -2,13 +2,52 @@
   <div class="container-fluid">
     <ng-container *ngIf="locationDetail$ | async as item">
       <h3>{{ item.name }}</h3>
-      <p>{{ item.content }}</p>
-      <p>{{ item.phone }}</p>
-      <div>
-        <span class="mr-2">{{ item.timeOpen }}</span>
-        <span>{{ item.timeClose }}</span>
-      </div>
       <p>{{ item.address }}</p>
+      <mat-tab-group>
+        <mat-tab label="Thông tin">
+          <p class="mt-2">Tên địa điểm: {{ item.name }}</p>
+          <p class="mt-2">Mô tả: {{ item.content }}</p>
+          <p class="mt-2">Số điện thoại: {{ item.phone }}</p>
+          <p class="mt-2">Địa chỉ: {{ item.address }}</p>
+          <p class="mt-2">
+            Giờ mở cửa - đóng cửa: {{ item.timeOpen }} - {{ item.timeClose }}
+          </p>
+        </mat-tab>
+        <mat-tab label="Hình ảnh"> Content 2 </mat-tab>
+        <mat-tab label="Bình luận">
+          <form class="example-form" (submit)="onSubmit($event)">
+            <mat-form-field
+              class="example-full-width"
+              appearance="fill"
+              [formGroup]="reviewForm"
+            >
+              <input
+                matInput
+                placeholder="Thêm bình luận"
+                formControlName="review"
+              />
+            </mat-form-field>
+          </form>
+          <ng-container *ngFor="let item of reviewTa$ | async">
+            <div class="mt-4">
+              <mat-divider></mat-divider>
+              <div class="row mt-2">
+                <div class="col-10">
+                  <p>{{ item.content }}</p>
+                  <p style="display: flex">
+                    <span>
+                      {{ item.favorite }}
+                    </span>
+
+                    <mat-icon>star</mat-icon>
+                  </p>
+                </div>
+                <span class="col-2">{{ item.createdDate }}</span>
+              </div>
+            </div>
+          </ng-container>
+        </mat-tab>
+      </mat-tab-group>
     </ng-container>
   </div>
 </div>

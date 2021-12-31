@@ -17,6 +17,7 @@ export class LocationService {
     restaurantStore: LocationResponseModel[];
     imageUrl: string;
     locationUrl: string;
+    reviewTaUrl: string;
     constructor(private restfulService: RestfulService) { }
 
     getLocation(type: number) {
@@ -36,5 +37,14 @@ export class LocationService {
     getImages() {
         this.imageUrl = `${this.url}/api/Image`;
         return this.restfulService.read(this.imageUrl);
+    }
+
+    getReviewsTa() {
+        this.reviewTaUrl = `${this.url}/api/Review`;
+        return this.restfulService.read(this.reviewTaUrl).pipe(
+            map(items => {
+                return items.filter((item) => !!item.touristAttractionId)
+            })
+        );
     }
 }

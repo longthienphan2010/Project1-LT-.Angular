@@ -19,7 +19,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import { LocationDetailComponent } from 'app/location-detail/location-detail.component';
 import { NewsDetailComponent } from 'app/news-detail/news-detail.component';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   imports: [
     CommonModule,
@@ -32,6 +34,9 @@ import { NewsDetailComponent } from 'app/news-detail/news-detail.component';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatTabsModule,
+    MatDividerModule,
+    MatIconModule
   ],
   declarations: [
     RestaurantComponent,
