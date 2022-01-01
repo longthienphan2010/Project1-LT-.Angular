@@ -15,7 +15,7 @@
         </mat-tab>
         <mat-tab label="Hình ảnh"> Content 2 </mat-tab>
         <mat-tab label="Bình luận">
-          <form class="example-form" (submit)="onSubmit($event)">
+          <form class="example-form" id="review-form">
             <mat-form-field
               class="example-full-width"
               appearance="fill"
@@ -27,6 +27,9 @@
                 formControlName="review"
               />
             </mat-form-field>
+            <button mat-button color="primary" (click)="onSubmit($event)">
+              Submit
+            </button>
           </form>
           <ng-container *ngFor="let item of reviewTa$ | async">
             <div class="mt-4">
@@ -42,7 +45,17 @@
                     <mat-icon>star</mat-icon>
                   </p>
                 </div>
-                <span class="col-2">{{ item.createdDate }}</span>
+                <span class="col-2">{{
+                  item.createdDate | date: "dd/MM/yyyy"
+                }}</span>
+                <div>
+                  <button mat-button color="primary" (click)="editReview(item)">
+                    Edit
+                  </button>
+                  <button mat-button color="warn" (click)="deleteReview(item)">
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           </ng-container>

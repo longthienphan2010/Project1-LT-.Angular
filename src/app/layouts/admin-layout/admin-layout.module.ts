@@ -22,6 +22,8 @@ import { NewsDetailComponent } from 'app/news-detail/news-detail.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatTooltipModule,
     MatTabsModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatSnackBarModule
   ],
   declarations: [
     RestaurantComponent,

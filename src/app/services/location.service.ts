@@ -47,4 +47,19 @@ export class LocationService {
             })
         );
     }
+
+    postReviewTa(reviewRequest) {
+        this.reviewTaUrl = `${this.url}/api/Review`;
+        return this.restfulService.create(this.reviewTaUrl, reviewRequest);
+    }
+
+    editReviewTa(reviewRequest) {
+        this.reviewTaUrl = `${this.url}/api/Review`;
+        return this.restfulService.put(this.reviewTaUrl, reviewRequest);
+    }
+
+    deleteReviewTa(id) {
+        this.reviewTaUrl = `${this.url}/api/Review`;
+        return this.restfulService.delete(this.reviewTaUrl, id);
+    }
 }
