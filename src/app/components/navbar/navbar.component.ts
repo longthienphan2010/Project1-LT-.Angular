@@ -1,8 +1,10 @@
+import { RegisterComponent } from './../../register/register.component';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES, ROUTES2 } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LoginComponent } from 'app/login/login.component';
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
@@ -16,7 +18,11 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location, private element: ElementRef, private router: Router) {
+    constructor(
+        location: Location,
+        private element: ElementRef,
+        private router: Router,
+        public dialog: MatDialog) {
         this.location = location;
         this.sidebarVisible = false;
     }
@@ -129,5 +135,17 @@ export class NavbarComponent implements OnInit {
             }
         }
         return 'Dashboard';
+    }
+
+    login() {
+        this.dialog.open(LoginComponent, {
+            width: '30%'
+        });
+    }
+
+    register() {
+        this.dialog.open(RegisterComponent, {
+            width: '50%'
+        });
     }
 }

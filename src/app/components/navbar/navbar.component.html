@@ -41,8 +41,12 @@
       <select class="form-control w-25 mr-5" id="exampleFormControlSelect1">
         <option selected>Khánh Hòa</option>
       </select>
-      <button type="button" class="btn btn-primary mr-3">Đăng nhập</button>
-      <button type="button" class="btn btn-secondary">Đăng ký</button>
+      <button type="button" class="btn btn-primary mr-3" (click)="login()">
+        Đăng nhập
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="register()">
+        Đăng ký
+      </button>
     </div>
   </div>
 </nav>
