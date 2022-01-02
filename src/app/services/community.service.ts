@@ -33,6 +33,25 @@ export class CommunityService {
 
     getReviews(): Observable<any[]> {
         this.reviewsUrl = `${this.url}/api/Review`;
-        return this.restfulService.read(this.reviewsUrl);
+        return this.restfulService.read(this.reviewsUrl).pipe(
+            map(items => {
+                return items.filter((item) => !!item.newsId)
+            })
+        );
+    }
+
+    postReview(reviewRequest) {
+        this.reviewsUrl = `${this.url}/api/Review`;
+        return this.restfulService.create(this.reviewsUrl, reviewRequest);
+    }
+
+    editReview(reviewRequest) {
+        this.reviewsUrl = `${this.url}/api/Review`;
+        return this.restfulService.put(this.reviewsUrl, reviewRequest);
+    }
+
+    deleteReview(id) {
+        this.reviewsUrl = `${this.url}/api/Review`;
+        return this.restfulService.delete(this.reviewsUrl, id);
     }
 }
