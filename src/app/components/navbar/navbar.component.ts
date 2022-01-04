@@ -1,3 +1,4 @@
+import { DataService } from './../../services/data.service';
 import { RegisterComponent } from './../../register/register.component';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES, ROUTES2 } from '../sidebar/sidebar.component';
@@ -17,12 +18,16 @@ export class NavbarComponent implements OnInit {
     mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    isLogIn: boolean = false;
+    isLogOut: boolean = false;
+    username: string;
 
     constructor(
         location: Location,
         private element: ElementRef,
         private router: Router,
-        public dialog: MatDialog) {
+        public dialog: MatDialog,
+        private dataService: DataService) {
         this.location = location;
         this.sidebarVisible = false;
     }
@@ -40,6 +45,39 @@ export class NavbarComponent implements OnInit {
                 this.mobile_menu_visible = 0;
             }
         });
+        const username = localStorage.getItem('username_project');
+        if (username) {
+            this.username = username;
+            this.getState('login');
+        } else {
+            this.getState('logout');
+        }
+        this.dataService.events$.subscribe(message => {
+            if (message) {
+                this.getState(message);
+                this.username = localStorage.getItem('username_project');
+                console.log(this.username);
+
+            };
+        })
+    }
+
+    getState(state: string) {
+        switch (state) {
+            case "login":
+                this.isLogIn = true;
+                this.isLogOut = false;
+                break;
+            case "logout":
+                this.isLogIn = false;
+                this.isLogOut = false;
+                break;
+        }
+    }
+
+    logOut() {
+        this.getState('logout');
+        localStorage.clear();
     }
 
     sidebarOpen() {

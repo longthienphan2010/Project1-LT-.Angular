@@ -41,12 +41,20 @@
       <select class="form-control w-25 mr-5" id="exampleFormControlSelect1">
         <option selected>Khánh Hòa</option>
       </select>
-      <button type="button" class="btn btn-primary mr-3" (click)="login()">
-        Đăng nhập
-      </button>
-      <button type="button" class="btn btn-secondary" (click)="register()">
-        Đăng ký
-      </button>
+      <ng-container *ngIf="!isLogIn">
+        <button type="button" class="btn btn-primary mr-3" (click)="login()">
+          Đăng nhập
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="register()">
+          Đăng ký
+        </button>
+      </ng-container>
+      <ng-container *ngIf="isLogIn">
+        <span class="mr-3">{{ username }}</span>
+        <button type="button" class="btn btn-secondary" (click)="logOut()">
+          Log out
+        </button>
+      </ng-container>
     </div>
   </div>
 </nav>
