@@ -44,6 +44,42 @@
   </ul> -->
 
   <div id="accordion">
+    <div class="card" *ngIf="isLogin">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button
+            class="btn btn-link collapsed"
+            data-toggle="collapse"
+            data-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            User dashboard
+          </button>
+        </h5>
+      </div>
+      <div
+        id="collapseThree"
+        class="collapse"
+        aria-labelledby="headingThree"
+        data-parent="#accordion"
+      >
+        <div class="card-body">
+          <ul class="nav">
+            <li
+              routerLinkActive="active"
+              *ngFor="let menuItem of menuItems3"
+              class="{{ menuItem.class }} nav-item"
+            >
+              <a class="nav-link" [routerLink]="[menuItem.path]">
+                <i class="material-icons">{{ menuItem.icon }}</i>
+                <p>{{ menuItem.title }}</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="card">
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">

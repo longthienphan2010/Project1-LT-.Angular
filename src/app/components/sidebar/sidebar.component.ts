@@ -1,3 +1,4 @@
+import { DataService } from './../../services/data.service';
 import { Component, OnInit } from '@angular/core';
 
 declare const $: any;
@@ -20,6 +21,11 @@ export const ROUTES2: RouteInfo[] = [
   { path: '/evaluate', title: 'Đánh giá', icon: 'content_paste', class: '' },
 ];
 
+export const ROUTES3: RouteInfo[] = [
+  { path: '/manage-location', title: 'Quản lý địa điểm', icon: 'newspaper', class: '' },
+  { path: '/manage-news', title: 'Quản lý tin tức', icon: 'person', class: '' },
+];
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -28,11 +34,22 @@ export const ROUTES2: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
   menuItems2: any[];
-  constructor() { }
+  menuItems3: any[];
+  isLogin: boolean = false;
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.menuItems2 = ROUTES2.filter(menuItem => menuItem);
+    this.menuItems3 = ROUTES3.filter(menuItem => menuItem);
+
+    this.dataService.events$.subscribe(result => {
+      if (result === "login") {
+        this.isLogin = true;
+      } else if(result === "logout") {
+        this.isLogin = false;
+      }
+    })
   }
   isMobileMenu() {
     if ($(window).width() > 991) {

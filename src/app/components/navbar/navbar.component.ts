@@ -60,6 +60,17 @@ export class NavbarComponent implements OnInit {
 
             };
         })
+
+        window.onbeforeunload = (event) => {
+            const e = event || window.event;
+            // Cancel the event
+            e.preventDefault();
+            localStorage.clear();
+            if (e) {
+               e.returnValue = ''; // Legacy method for cross browser support
+            }
+            return ''; // Legacy method for cross browser support
+         };
     }
 
     getState(state: string) {
@@ -78,6 +89,7 @@ export class NavbarComponent implements OnInit {
     logOut() {
         this.getState('logout');
         localStorage.clear();
+        this.dataService.newEvent("logout");
     }
 
     sidebarOpen() {
@@ -185,5 +197,9 @@ export class NavbarComponent implements OnInit {
         this.dialog.open(RegisterComponent, {
             width: '50%'
         });
+    }
+
+    ngOnDestroy() {
+        localStorage.clear();
     }
 }

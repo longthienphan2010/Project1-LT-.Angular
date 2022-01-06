@@ -10,6 +10,8 @@ import { EvaluateComponent } from '../../evaluate/evaluate.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { LocationDetailComponent } from 'app/location-detail/location-detail.component';
 import { NewsDetailComponent } from 'app/news-detail/news-detail.component';
+import { ManageNewsComponent } from 'app/manage-news/manage-news.component';
+import { ManageLocationComponent } from 'app/manage-location/manage-location.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -67,4 +69,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'synthetic', component: SyntheticComponent },
     { path: 'evaluate', component: EvaluateComponent },
     { path: 'upgrade', component: UpgradeComponent },
+    { path: 'manage-location', component: ManageLocationComponent },
+    { path: 'manage-news', component: ManageNewsComponent },
 ];

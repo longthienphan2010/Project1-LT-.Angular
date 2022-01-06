@@ -1,3 +1,4 @@
+import { ManageLocationComponent } from 'app/manage-location/manage-location.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -23,7 +24,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { ManageLocationDeleteComponent } from 'app/manage-location-delete/manage-location-delete.component';
+import { ManageLocationEditComponent } from 'app/manage-location-edit/manage-location-edit.component';
+import { ManageNewsComponent } from 'app/manage-news/manage-news.component';
+import { ManageLocationCreateComponent } from './../../manage-location-create/manage-location-create.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 @NgModule({
   imports: [
     CommonModule,
@@ -39,7 +44,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTabsModule,
     MatDividerModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule
   ],
   declarations: [
     RestaurantComponent,
@@ -51,7 +57,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     EvaluateComponent,
     UpgradeComponent,
     LocationDetailComponent,
-    NewsDetailComponent
+    NewsDetailComponent,
+    ManageLocationDeleteComponent,
+    ManageLocationEditComponent,
+    ManageNewsComponent,
+    ManageLocationCreateComponent,
+    ManageLocationComponent
   ]
 })
 

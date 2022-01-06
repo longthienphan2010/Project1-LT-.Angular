@@ -1,0 +1,21 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <button class="btn btn-primary mb-3" (click)="addLocation()">Add</button>
+    <ng-container *ngFor="let item of touristAttractionData$ | async">
+      <div class="row row-bar mb-3">
+        <div class="col bar">
+          <span>{{ item.id }}</span>
+          <span>{{ item.name }}</span>
+          <div>
+            <button mat-button color="primary" (click)="editLocation(item)">
+              Edit
+            </button>
+            <button mat-button color="warn" (click)="deleteLocation(item)">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

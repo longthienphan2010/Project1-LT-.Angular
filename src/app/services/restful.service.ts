@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { catchError } from "rxjs/operators";
@@ -43,6 +43,19 @@ export class RestfulService {
     // DELETE
     delete(url: string, id: number): Observable<any> {
         return this.http.delete(`${url}/${id}`).pipe(catchError((error) => {
+            throw of(error);
+        }));
+    }
+
+    // DELETE
+    deleteWithBody(url: string, req: any): Observable<any> {
+        const options = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+            }),
+            body: req
+        };
+        return this.http.delete(`${url}`, options).pipe(catchError((error) => {
             throw of(error);
         }));
     }
